@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://mr3i36dp7cdl"]
+
+[ext_resource type="Script" path="res://settings.gd" id="1_2848o"]
+[ext_resource type="Script" path="res://brightness_control.gd" id="1_n60km"]
+[ext_resource type="Texture2D" uid="uid://fmj62wwgm0gf" path="res://icon.svg" id="2_aop7p"]
+
+[node name="Settings" type="Panel"]
+offset_left = 648.0
+offset_top = 368.0
+offset_right = 648.0
+offset_bottom = 368.0
+script = ExtResource("1_2848o")
+
+[node name="Background_2DSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_aop7p")
+
+[node name="Brightness_Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -650.0
+offset_top = -371.0
+offset_right = 629.0
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n60km")
+
+[node name="Brightness_Label" type="Label" parent="Brightness_Control"]
+layout_mode = 0
+offset_left = 980.0
+offset_top = 117.0
+offset_right = 1037.0
+offset_bottom = 145.0
+text = "B Label"
+
+[node name="Brightness_Slider" type="HSlider" parent="Brightness_Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.573
+anchor_top = 0.477
+anchor_right = 0.573
+anchor_bottom = 0.477
+offset_left = -412.867
+offset_top = -225.871
+offset_right = 236.133
+offset_bottom = -199.871
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="Setting_Label" type="Label" parent="Brightness_Control"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 120.0
+offset_right = 297.0
+offset_bottom = 143.0
+text = "Brightness"
+
+[node name="Close_Settings_Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 260.0
+offset_right = 85.0
+offset_bottom = 332.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Close"
+
+[node name="Fullscreen_Button" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 199.0
+offset_top = -225.0
+offset_right = 381.0
+offset_bottom = -158.0
+text = "Toggle Fullscreen"
+flat = true
+expand_icon = true
+
+[connection signal="value_changed" from="Brightness_Control/Brightness_Slider" to="Brightness_Control" method="_on_brightness_slider_value_changed"]
+[connection signal="pressed" from="Close_Settings_Button" to="Brightness_Control" method="_on_close_settings_button_pressed"]
