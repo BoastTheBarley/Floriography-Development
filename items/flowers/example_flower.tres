@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FlowerData" load_steps=3 format=3 uid="uid://scg47rxqrcsv"]
+
+[ext_resource type="Texture2D" uid="uid://khgfjh87mosm" path="res://items/flowers/journal art/daisy_placeholder.png" id="1_pajqa"]
+[ext_resource type="Script" path="res://items/flowers/scripts/flower_data.gd" id="1_yf3p4"]
+
+[resource]
+script = ExtResource("1_yf3p4")
+flower_sprite = ExtResource("1_pajqa")
+flower_name = "Daisy"
+scientific_name = "Bellis perennis"
+flower_description = "It's a daisy!"
+buy_cost = 3
+sell_cost = 5
+flower_quality = 1
+days_to_grow = 8
+days_until_dehydration = 2
