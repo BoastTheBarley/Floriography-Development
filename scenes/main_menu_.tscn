@@ -1,16 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://yhwf3jf7fl4o"]
 
-[ext_resource type="Texture2D" uid="uid://cnij2ml1wlaru" path="res://Wallpaper 3.png" id="1_o6iug"]
-[ext_resource type="Texture2D" uid="uid://fmj62wwgm0gf" path="res://icon.svg" id="2_crxhp"]
-[ext_resource type="Script" path="res://settings_button.gd" id="2_rkir3"]
-[ext_resource type="Script" path="res://leave_menu_button.gd" id="4_d7kr0"]
+[ext_resource type="Texture2D" uid="uid://cnij2ml1wlaru" path="res://placeholder_textures/Wallpaper 3.png" id="1_cywt2"]
+[ext_resource type="Texture2D" uid="uid://fmj62wwgm0gf" path="res://placeholder_textures/icon.svg" id="2_2boqu"]
+[ext_resource type="Script" path="res://scenes/scenes_script/settings_button.gd" id="3_lq7y0"]
+[ext_resource type="Script" path="res://scenes/scenes_script/leave_menu_button.gd" id="4_hqrcn"]
 
 [node name="Main_Menu" type="Node2D"]
 
 [node name="Background_2DSprite" type="Sprite2D" parent="."]
 position = Vector2(639.5, 359.125)
 scale = Vector2(0.602166, 0.511549)
-texture = ExtResource("1_o6iug")
+texture = ExtResource("1_cywt2")
 
 [node name="Settings_Button" type="Button" parent="."]
 offset_left = 541.0
@@ -18,8 +18,8 @@ offset_top = 312.0
 offset_right = 743.0
 offset_bottom = 448.0
 text = "Settings"
-icon = ExtResource("2_crxhp")
-script = ExtResource("2_rkir3")
+icon = ExtResource("2_2boqu")
+script = ExtResource("3_lq7y0")
 
 [node name="Leave_Menu_Button" type="Button" parent="."]
 offset_left = 560.0
@@ -27,7 +27,7 @@ offset_top = 208.0
 offset_right = 643.0
 offset_bottom = 265.0
 text = "Exit Menu"
-script = ExtResource("4_d7kr0")
+script = ExtResource("4_hqrcn")
 
 [connection signal="pressed" from="Settings_Button" to="Settings_Button" method="_on_pressed"]
 [connection signal="pressed" from="Leave_Menu_Button" to="Leave_Menu_Button" method="_on_pressed"]

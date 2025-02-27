@@ -6,7 +6,7 @@ func  _input(event: InputEvent):
 		go_to_main_menu()
 
 func go_to_main_menu():
-	get_tree().change_scene_to_file("res://main_menu_.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_menu_.tscn")
 
 
 	

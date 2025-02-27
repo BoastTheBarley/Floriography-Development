@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnij2ml1wlaru"
-path="res://.godot/imported/Wallpaper 3.png-7751a0fc36bc61cbe771704e1f52d718.ctex"
+uid="uid://fmj62wwgm0gf"
+path="res://.godot/imported/icon.svg-80e48d84fc4332973b96a1f1726f6424.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wallpaper 3.png"
-dest_files=["res://.godot/imported/Wallpaper 3.png-7751a0fc36bc61cbe771704e1f52d718.ctex"]
+source_file="res://placeholder_textures/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-80e48d84fc4332973b96a1f1726f6424.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
