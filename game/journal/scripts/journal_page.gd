@@ -1,4 +1,4 @@
-class_name JournalPage extends Node2D
+class_name JournalPage extends Control
 ## Contains data of flower and determines how it is displayed.
 ##
 ## Manages qualities of flowers seen/unlocked.
@@ -7,3 +7,13 @@ class_name JournalPage extends Node2D
 
 ## Flower displayed on this [JournalPage].
 var flower_contained: FlowerData
+@export var page_number: int
+
+@export var page_number_label: Label
+
+func _ready() -> void:
+	page_number_label.text = str(page_number)
+
+func set_page_number(page_number: int) -> void:
+	self.page_number = page_number
+	page_number_label.text = str(self.page_number)
