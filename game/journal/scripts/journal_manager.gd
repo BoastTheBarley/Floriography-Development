@@ -9,37 +9,44 @@ class_name JournalManager extends Control
 # JournalPage will manage FlowerData
 ## Pages contained in [JournalManager].
 # Breaks test when odd, will fix when using array
-@export var num_pages: int = 6
+@export var num_pages: int = 3
 var pages: Array[JournalPage]
-@export var current_left_page: JournalPage
-@export var current_right_page: JournalPage
+@export var _left_page: JournalPage
+@export var _right_page: JournalPage
 
-# Test variables
-var current_left_page_number: int:
-	get:
-		return current_left_page_number
-	set(val):
-		current_left_page_number = val
-		current_left_page.set_page_number(current_left_page_number)
+var flip_speedup_delay: float = 1
+var time_since_flip: float = 0
 
-var current_right_page_number: int:
+## Tracks left page number
+var left_page_number: int:
 	get:
-		return current_right_page_number
+		return left_page_number
 	set(val):
-		current_right_page_number = val
-		current_right_page.set_page_number(current_right_page_number)
+		left_page_number = val
+		_left_page.set_page_number(left_page_number)
+## Tracks right page number
+var right_page_number: int:
+	get:
+		return right_page_number
+	set(val):
+		right_page_number = val
+		_right_page.set_page_number(right_page_number)
 
 func _ready() -> void:
-	current_left_page_number = 1
-	current_right_page_number = 2
+	left_page_number = 1
+	right_page_number = 2
 	get_page_numbers()
 
 func _process(delta: float) -> void:
+	var flip_direction = Input.get_axis("flip_left", "flip_right")
 	# Detect page flip input
-	if Input.is_action_just_pressed("flip_left") or Input.is_action_just_pressed("flip_right"):
+	if flip_direction != 0 and (time_since_flip >= flip_speedup_delay or time_since_flip == 0):
 		# Pass input axis to flip_page
 		# -1 when pressing flip_left button, 1 when pressing flip_right button
-		flip_page(Input.get_axis("flip_left", "flip_right"))
+		flip_page(flip_direction)
+		time_since_flip = 0
+	
+	time_since_flip += delta
 
 # TO-DO: Detect when the beginning or end of journal has been reached
 ## Prototype flip_page. Flips page based on [param direction]. Positive is to the right.
@@ -55,21 +62,25 @@ func flip_page(direction: int) -> void:
 	get_page_numbers()
 
 func flip_left() -> void:
-	if current_left_page_number > 1:
-		current_left_page_number -= 2
-		current_right_page_number -= 2
+	# Wrap to end of journal if at the beginning
+	if left_page_number <= 1:
+		left_page_number = num_pages - 1
+		right_page_number = num_pages
+	# Flip left otherwise
 	else:
-		current_left_page_number = num_pages - 1
-		current_right_page_number = num_pages
+		left_page_number -= 2
+		right_page_number -= 2
 
 func flip_right() -> void:
-	if current_left_page_number < num_pages - 2:
-		current_left_page_number += 2
-		current_right_page_number += 2
+	# Wrap to the beginning of journal if at the end
+	if left_page_number >= num_pages - 1:
+		left_page_number = 1
+		right_page_number = 2
+	# Flip right otherwise
 	else:
-		current_left_page_number = 1
-		current_right_page_number = 2
+		left_page_number += 2
+		right_page_number += 2
 
 # Test function
 func get_page_numbers() -> void:
-	print("showing pages " + str(current_left_page_number) + " and " + str(current_right_page_number))
+	print("showing pages " + str(left_page_number) + " and " + str(right_page_number))

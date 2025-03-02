@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game/journal/scripts/journal_manager.gd" id="1_dn6qm"]
 [ext_resource type="PackedScene" uid="uid://d3rraxef8tgp6" path="res://game/journal/JournalPage.tscn" id="2_2x2kt"]
 
-[node name="Journal" type="Control" node_paths=PackedStringArray("current_left_page", "current_right_page")]
+[node name="Journal" type="Control" node_paths=PackedStringArray("_left_page", "_right_page")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,9 +11,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dn6qm")
-num_pages = 50
-current_left_page = NodePath("HBoxContainer/JournalPageLeft")
-current_right_page = NodePath("HBoxContainer/JournalPageRight")
+num_pages = 500
+_left_page = NodePath("HBoxContainer/JournalPageLeft")
+_right_page = NodePath("HBoxContainer/JournalPageRight")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
