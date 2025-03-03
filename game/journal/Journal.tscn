@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://crcrymlkl62sq"]
+[gd_scene load_steps=4 format=3 uid="uid://crcrymlkl62sq"]
 
 [ext_resource type="Script" path="res://game/journal/scripts/journal_manager.gd" id="1_dn6qm"]
 [ext_resource type="PackedScene" uid="uid://d3rraxef8tgp6" path="res://game/journal/JournalPage.tscn" id="2_2x2kt"]
+[ext_resource type="Script" path="res://game/journal/scripts/page_flip_controller.gd" id="2_3lpcy"]
 
-[node name="Journal" type="Control" node_paths=PackedStringArray("_left_page", "_right_page")]
+[node name="Journal" type="Control" node_paths=PackedStringArray("page_flipper", "_left_page", "_right_page")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,10 +13,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dn6qm")
 num_pages = 500
-_left_page = NodePath("HBoxContainer/JournalPageLeft")
-_right_page = NodePath("HBoxContainer/JournalPageRight")
+page_flipper = NodePath("JournalViewController")
+_left_page = NodePath("JournalViewController/JournalPageLeft")
+_right_page = NodePath("JournalViewController/JournalPageRight")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="PageTracker" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PageFlipController" type="Control" parent="PageTracker"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_3lpcy")
+
+[node name="JournalViewController" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -29,12 +42,12 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="JournalPageLeft" parent="HBoxContainer" instance=ExtResource("2_2x2kt")]
+[node name="JournalPageLeft" parent="JournalViewController" instance=ExtResource("2_2x2kt")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 
-[node name="JournalPageRight" parent="HBoxContainer" instance=ExtResource("2_2x2kt")]
+[node name="JournalPageRight" parent="JournalViewController" instance=ExtResource("2_2x2kt")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1

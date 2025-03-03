@@ -11,6 +11,7 @@ class_name JournalManager extends Control
 # Breaks test when odd, will fix when using array
 @export var num_pages: int = 3
 var pages: Array[JournalPage]
+@export var page_flipper: PageFlipper
 @export var _left_page: JournalPage
 @export var _right_page: JournalPage
 
@@ -33,53 +34,25 @@ var right_page_number: int:
 		_right_page.set_page_number(right_page_number)
 
 func _ready() -> void:
+	page_flipper.connect("flip_page", Callable(self, "flip_page"))
+	
 	left_page_number = 1
 	right_page_number = 2
 	get_page_numbers()
 
 func _process(delta: float) -> void:
+	process_page_flip()
+
+func process_page_flip() -> void:
 	var flip_direction = Input.get_axis("flip_left", "flip_right")
-	# Detect page flip input
-	if flip_direction != 0 and (time_since_flip >= flip_speedup_delay or time_since_flip == 0):
-		# Pass input axis to flip_page
-		# -1 when pressing flip_left button, 1 when pressing flip_right button
-		flip_page(flip_direction)
-		time_since_flip = 0
-	
-	time_since_flip += delta
-
-# TO-DO: Detect when the beginning or end of journal has been reached
-## Prototype flip_page. Flips page based on [param direction]. Positive is to the right.
-func flip_page(direction: int) -> void:
-	# Go back in field journal, move to the left
-	if direction < 0:
-		print("flipping left")
-		flip_left()
-	# Go forward in field journal, move to the right
-	elif direction > 0:
-		print ("flipping right")
-		flip_right()
-	get_page_numbers()
-
-func flip_left() -> void:
-	# Wrap to end of journal if at the beginning
-	if left_page_number <= 1:
-		left_page_number = num_pages - 1
-		right_page_number = num_pages
-	# Flip left otherwise
+	if flip_direction != 0:
+		page_flipper.start_flipping(flip_direction)
 	else:
-		left_page_number -= 2
-		right_page_number -= 2
+		page_flipper.end_flipping()
 
-func flip_right() -> void:
-	# Wrap to the beginning of journal if at the end
-	if left_page_number >= num_pages - 1:
-		left_page_number = 1
-		right_page_number = 2
-	# Flip right otherwise
-	else:
-		left_page_number += 2
-		right_page_number += 2
+func flip_page(flip_direction: float) -> void:
+	left_page_number = clampf(left_page_number + (2 * flip_direction), 1, num_pages - 1)
+	right_page_number = left_page_number + 1
 
 # Test function
 func get_page_numbers() -> void:
