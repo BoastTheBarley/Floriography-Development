@@ -14,24 +14,34 @@ var time_between_flips: float = 1
 var time_since_flip: float = 0
 ## True while pages are being flipped.
 var flipping: bool = false
+## Tracks if current page flip attempt is the first one.
+var first_flip: bool = true
+## Stores direction of page flip given by [JournalManager]
+var flip_direction: float
 
 func _process(delta: float) -> void:
 	if flipping:
-		time_since_flip += delta
-		
-		# Decrease time_between_flips while key is being held
-		time_between_flips = move_toward(time_between_flips, MIN_TIME_BETWEEN_FLIPS, 0.01)
+		speed_up_flipping(delta)
 
-## Controls page flip speed logic.
-func start_flipping(flip_direction: float) -> void:
-	# Flip immediately on first frame of key press
-	# Otherwise flip after time_between_flips intervals
-	if not flipping or time_since_flip >= time_between_flips:
-		flipping = true
+## Speeds up page flipping over time.
+func speed_up_flipping(delta: float) -> void:
+	# Track the amount of time since the last page flip
+	time_since_flip += delta
+	# Steadily increase flip speed over time (decrease time between flips)
+	time_between_flips = move_toward(time_between_flips, MIN_TIME_BETWEEN_FLIPS, 0.01)
+	
+	if first_flip or time_since_flip >= time_between_flips:
+		first_flip = false
 		time_since_flip = 0
 		flip_page.emit(flip_direction)
 
-## Resets values once flipping stops.
+## Starts page flipping.
+func start_flipping(flip_direction: float) -> void:
+	flipping = true
+	self.flip_direction = flip_direction
+
+## Ends page flipping. Resets values for next time.
 func end_flipping() -> void:
+	first_flip = true
 	flipping = false
 	time_between_flips = MAX_TIME_BETWEEN_FLIPS
