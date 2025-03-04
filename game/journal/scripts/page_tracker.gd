@@ -4,7 +4,7 @@ class_name PageTracker extends Control
 signal change_pages(left: JournalPage, right: JournalPage)
 
 ## [PageFlipper] attached to [PageTracker].
-@export var page_flipper: PageFlipper
+@export var page_flip_handler: PageFlipHandler
 ## Number of pages in Journal.
 @export var num_pages: int = 69:
 	get:
@@ -28,7 +28,7 @@ var current_right_page_num: int = 2
 
 func _ready() -> void:
 	num_pages = num_pages
-	page_flipper.connect("flip_page", Callable(self, "flip_page"))
+	page_flip_handler.connect("flip_page", Callable(self, "flip_page"))
 	for i in range(num_pages):
 		pages.append(JournalPage.new())
 		pages.back().page_number = i + 1
@@ -57,7 +57,7 @@ func _flip_right() -> void:
 	change_pages.emit(pages[current_left_page_num - 1], pages[current_right_page_num - 1])
 
 func begin_flip(direction: float) -> void:
-	page_flipper.start_flipping(direction)
+	page_flip_handler.start_flipping(direction)
 
 func end_flip() -> void:
-	page_flipper.end_flipping()
+	page_flip_handler.end_flipping()
