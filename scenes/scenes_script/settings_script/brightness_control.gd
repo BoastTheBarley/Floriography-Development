@@ -17,4 +17,4 @@ func _on_brightness_slider_value_changed(current):
 
 
 func _on_close_settings_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu_.tscn")
+	get_tree().change_scene_to_file("res://scenes/escp_menu_.tscn")
