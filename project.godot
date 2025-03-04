@@ -19,6 +19,7 @@ config/icon="res://placeholder_textures/icon.svg"
 
 GlobalWorldEnvironment="*res://world_environment.tscn"
 GlobalScript="*res://global_script.gd"
+GameManager="*res://game/scripts/game_manager.gd"
 
 [display]
 
