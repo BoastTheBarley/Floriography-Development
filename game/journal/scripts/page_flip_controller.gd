@@ -16,7 +16,7 @@ var time_since_flip: float = 0
 var flipping: bool = false
 ## Tracks if current page flip attempt is the first one.
 var first_flip: bool = true
-## Stores direction of page flip given by [JournalManager]
+## Stores direction of page flip given by [JournalSystem]
 var flip_direction: float
 
 func _process(delta: float) -> void:

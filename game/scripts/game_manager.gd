@@ -5,6 +5,6 @@ class_name GameManager extends Node2D
 ## Passes data along to where it needs to go.
 
 # Example: customer buys flower -> ShopManager signals GameManager that FlowerData was bought ->
-# GameManager tells JournalManager that a flower was bought ->
-# JournalManager updates JournalPage that contains flower ->
+# GameManager tells JournalSystem that a flower was bought ->
+# JournalSystem updates JournalPage that contains flower ->
 # JournalPage updates numBought display for flower
