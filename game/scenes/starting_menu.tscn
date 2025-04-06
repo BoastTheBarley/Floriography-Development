@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwdtqxe4lb4ma"]
+
+[ext_resource type="Script" uid="uid://ylie410ylq4g" path="res://game/scenes/scenes_script/start_new_game.gd" id="1_teu6i"]
+[ext_resource type="Script" uid="uid://dnoeao0u2o7kh" path="res://game/scenes/scenes_script/settings_script/continue_current_game.gd" id="2_fvfgp"]
+
+[node name="StartingMenu" type="Node2D"]
+
+[node name="Start_New_Game_Button" type="Button" parent="."]
+offset_left = 521.0
+offset_top = 351.0
+offset_right = 681.0
+offset_bottom = 407.0
+text = "Play New Game"
+script = ExtResource("1_teu6i")
+
+[node name="Continue Current Game" type="Button" parent="."]
+offset_left = 472.0
+offset_top = 257.0
+offset_right = 722.0
+offset_bottom = 307.0
+text = "Continue Current Game
+"
+script = ExtResource("2_fvfgp")
+
+[connection signal="pressed" from="Start_New_Game_Button" to="Start_New_Game_Button" method="_on_pressed"]
+[connection signal="pressed" from="Continue Current Game" to="Continue Current Game" method="_on_pressed"]
