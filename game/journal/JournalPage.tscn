@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d3rraxef8tgp6"]
 
-[ext_resource type="Script" path="res://game/journal/scripts/journal_page.gd" id="1_pohsb"]
+[ext_resource type="Script" uid="uid://d2kyvld6xwaab" path="res://game/journal/scripts/journal_page.gd" id="1_pohsb"]
 
 [node name="JournalPage" type="Control" node_paths=PackedStringArray("page_number_label")]
 layout_mode = 3

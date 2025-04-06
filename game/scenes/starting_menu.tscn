@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwdtqxe4lb4ma"]
 
-[ext_resource type="Script" path="res://scenes/scenes_script/start_new_game.gd" id="1_teu6i"]
-[ext_resource type="Script" path="res://scenes/scenes_script/settings_script/continue_current_game.gd" id="2_fvfgp"]
+[ext_resource type="Script" uid="uid://ylie410ylq4g" path="res://game/scenes/scenes_script/start_new_game.gd" id="1_teu6i"]
+[ext_resource type="Script" uid="uid://dnoeao0u2o7kh" path="res://game/scenes/scenes_script/settings_script/continue_current_game.gd" id="2_fvfgp"]
 
 [node name="StartingMenu" type="Node2D"]
 

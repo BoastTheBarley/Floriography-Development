@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cnij2ml1wlaru" path="res://placeholder_textures/Wallpaper 3.png" id="1_08ugy"]
 [ext_resource type="Texture2D" uid="uid://fmj62wwgm0gf" path="res://placeholder_textures/icon.svg" id="2_g6aog"]
-[ext_resource type="Script" path="res://scenes/scenes_script/settings_script/settings_button.gd" id="3_we7yc"]
-[ext_resource type="Script" path="res://scenes/scenes_script/leave_menu_button.gd" id="4_2i0y6"]
-[ext_resource type="Script" path="res://scenes/scenes_script/settings_script/save_button.gd" id="5_n1md8"]
+[ext_resource type="Script" uid="uid://uqtprtdb76y" path="res://game/scenes/scenes_script/settings_script/settings_button.gd" id="3_we7yc"]
+[ext_resource type="Script" uid="uid://d4kt3df0pgm0i" path="res://game/scenes/scenes_script/leave_menu_button.gd" id="4_2i0y6"]
+[ext_resource type="Script" uid="uid://cugm0yi41ffly" path="res://game/scenes/scenes_script/settings_script/save_button.gd" id="5_n1md8"]
 
 [node name="Main_Menu" type="Node2D"]
 

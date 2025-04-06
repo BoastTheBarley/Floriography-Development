@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xlf42ltnwt3k"
-path="res://.godot/imported/Journal Button Highlighted Texture.png-212f4df93de87e0ce84d8cbc19c7b0cb.ctex"
+uid="uid://dhxe4l2nyjvtx"
+path="res://.godot/imported/Journal Button Texture.png-bbf73e27b50f265bd3f09f108fee7e8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/Journal Button Highlighted Texture.png"
-dest_files=["res://.godot/imported/Journal Button Highlighted Texture.png-212f4df93de87e0ce84d8cbc19c7b0cb.ctex"]
+source_file="res://items/Interactable Textures/Journal Button Texture.png"
+dest_files=["res://.godot/imported/Journal Button Texture.png-bbf73e27b50f265bd3f09f108fee7e8d.ctex"]
 
 [params]
 

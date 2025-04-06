@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://mr3i36dp7cdl"]
 
-[ext_resource type="Script" path="res://scenes/scenes_script/settings_script/settings.gd" id="1_ekp7c"]
+[ext_resource type="Script" uid="uid://dbqcxl01wa46i" path="res://game/scenes/scenes_script/settings_script/settings.gd" id="1_ekp7c"]
 [ext_resource type="Texture2D" uid="uid://fmj62wwgm0gf" path="res://placeholder_textures/icon.svg" id="2_ynfok"]
-[ext_resource type="Script" path="res://scenes/scenes_script/settings_script/brightness_control.gd" id="3_kcq7g"]
+[ext_resource type="Script" uid="uid://7i08qkucxky8" path="res://game/scenes/scenes_script/settings_script/brightness_control.gd" id="3_kcq7g"]
 
 [node name="Settings" type="Panel"]
 offset_left = 648.0

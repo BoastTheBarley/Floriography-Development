@@ -6,5 +6,5 @@ func  _input(event: InputEvent):
 		go_to_escp_menu()
 
 func go_to_escp_menu():
-	get_tree().change_scene_to_file("res://scenes/escp_menu_.tscn")
+	get_tree().change_scene_to_file("res://game/scenes/escp_menu_.tscn")
 	

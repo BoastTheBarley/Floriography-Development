@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://votdamoipnr3"]
 
 [ext_resource type="Texture2D" uid="uid://16opwmofogah" path="res://placeholder_textures/flower_shop_start.png" id="1_l2krw"]
-[ext_resource type="Texture2D" uid="uid://xlf42ltnwt3k" path="res://textures/Journal Button Highlighted Texture.png" id="2_qxvoy"]
-[ext_resource type="Texture2D" uid="uid://dhxe4l2nyjvtx" path="res://textures/Journal Button Texture.png" id="3_y35j3"]
-[ext_resource type="Script" path="res://scenes/scenes_script/journal_button.gd" id="4_gia64"]
+[ext_resource type="Texture2D" uid="uid://xlf42ltnwt3k" path="res://items/Interactable Textures/Journal Button Highlighted Texture.png" id="2_qxvoy"]
+[ext_resource type="Texture2D" uid="uid://dhxe4l2nyjvtx" path="res://items/Interactable Textures/Journal Button Texture.png" id="3_y35j3"]
+[ext_resource type="Script" uid="uid://b7u2ui75nkf4w" path="res://game/scenes/scenes_script/journal_button.gd" id="4_gia64"]
 
 [node name="Bedroom_Scene" type="Node2D"]
 
