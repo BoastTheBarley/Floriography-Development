@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://mr3i36dp7cdl"]
 
-[ext_resource type="Script" uid="uid://dsy7h5cwttreq" path="res://settings.gd" id="1_cfhb0"]
+[ext_resource type="Script" uid="uid://dsy7h5cwttreq" path="res://game/scenes/scenes_script/settings.gd" id="1_cfhb0"]
 [ext_resource type="Texture2D" uid="uid://fmj62wwgm0gf" path="res://placeholder_textures/icon.svg" id="2_ynfok"]
-[ext_resource type="Script" uid="uid://7i08qkucxky8" path="res://game/scenes/scenes_script/settings_script/brightness_control.gd" id="3_kcq7g"]
+[ext_resource type="Script" uid="uid://dh25s7q5miljy" path="res://game/scenes/scenes_script/brightness_control_script.gd" id="3_cfhb0"]
 
 [node name="Settings" type="Panel"]
 offset_left = 648.0
@@ -27,7 +27,7 @@ offset_right = 629.0
 offset_bottom = 352.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_kcq7g")
+script = ExtResource("3_cfhb0")
 
 [node name="Brightness_Label" type="Label" parent="Brightness_Control"]
 layout_mode = 0
@@ -88,4 +88,4 @@ expand_icon = true
 
 [connection signal="value_changed" from="Brightness_Control/Brightness_Slider" to="Brightness_Control" method="_on_brightness_slider_value_changed"]
 [connection signal="pressed" from="Close_Settings_Button" to="Brightness_Control" method="_on_close_settings_button_pressed"]
-[connection signal="pressed" from="Fullscreen_Button" to="." method="_on_fullscreen_button_pressed"]
+[connection signal="pressed" from="Fullscreen_Button" to="Brightness_Control" method="_on_fullscreen_button_pressed"]
