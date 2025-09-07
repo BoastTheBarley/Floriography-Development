@@ -18,7 +18,7 @@ config/icon="res://placeholder_textures/icon.svg"
 [autoload]
 
 GlobalWorldEnvironment="*res://world_environment.tscn"
-GlobalScript="*res://global_script.gd"
+Global_Values="*res://Global_Values.gd"
 Save_data="*res://game/saved_resources/save_game_script.gd"
 DialogueSignal="*res://game/Dialogue Manager/dialogue_signal_manager.gd"
 
