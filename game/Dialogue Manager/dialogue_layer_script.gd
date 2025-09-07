@@ -15,7 +15,7 @@ func _ready():
 	background.visible = false
 	text.visible = false
 	scene_text = load_scene_text()
-	print(scene_text)
+	#tester - print(scene_text)
 
 
 func load_scene_text():
@@ -28,7 +28,7 @@ func load_scene_text():
 		if error == OK:
 			var text_data = json.data  # Get the parsed data
 			if typeof(text_data) == TYPE_DICTIONARY:  # Check if it’s a dictionary (JSON object)
-				print(text_data)  # Prints the dictionary
+				#tester - print(text_data)  # Prints the dictionary
 				return text_data
 			else:
 				print("Unexpected data, expected a dictionary.")
@@ -40,7 +40,7 @@ func load_scene_text():
 
 func show_scene_text():
 	text.text = selected_text.pop_front()
-	print(selected_text)
+	#tester - print(selected_text)
 
 func next_line():
 	if not selected_text.is_empty():
@@ -61,18 +61,18 @@ func _on_display_dialogue(text_key):
 		background.visible = true
 		text.visible = true
 		is_dialogue_active = true
-		print(scene_text[text_key])
+		#tester - print(scene_text[text_key])
 		selected_text = scene_text[text_key].duplicate()
 		show_scene_text()
 
 # When Player Has Mouse In Dialogue Box They Can Click To Next Line, Dialogue Continues When In Area And Clicked
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and is_dialogue_active:
-		print("event detected")
+		#tester - print("event detected")
 		next_line()
 
 
-
+# Click Bell & Customer will come talk, load day for customer visual and line request
 func _on_summon_customer_pressed() -> void:
 	if not is_dialogue_active:
 		_on_display_dialogue("intro")
