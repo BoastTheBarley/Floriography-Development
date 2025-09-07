@@ -4,7 +4,7 @@ extends Panel
 
 
 func _on_fullscreen_button_pressed():
-	print("Called")
+	#error Embedded window only supports windowed mode
 	if true:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
