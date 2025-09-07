@@ -6,7 +6,7 @@ func _on_start_new_game_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://game/scenes/customer_scene.tscn")
 	
 	#tester
-	print("successfully started new game", Global_Values.player_information["brightness"])
+	print("successfully started new game; brightness: ",Global_Values.player_information["brightness"])
 	#tester
 	
 

@@ -40,6 +40,7 @@ var inventory = {
 
 
 #Saving And Loading Data
+#~~~~~~~~~~need to add a reset on the start new game button and/or load screen with listed save slots.~~~~~~~~~~`
 #user:// directory saves game data on pc files after game closes
 var save_path = "user://player_data_last_saved.save"
 
@@ -50,7 +51,7 @@ func save_player_data():
 	file.store_var(Global_Values.player_information["brightness"])
 	
 	#tester
-	print("succesfully saved player_data", Global_Values.player_information["brightness"])
+	print("succesfully saved player_data; brightness: ", Global_Values.player_information["brightness"])
 	#tester
 
 func load_player_data():
@@ -66,5 +67,5 @@ func load_player_data():
 		Global_Values.player_information["brightness"] = 1
 	
 	#tester
-	print("succesfully loaded player_data", Global_Values.player_information["brightness"])
+	print("succesfully loaded player_data; brightness: ", Global_Values.player_information["brightness"])
 	#tester
