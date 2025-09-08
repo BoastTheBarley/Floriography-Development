@@ -14,7 +14,7 @@ position = Vector2(-16, -1)
 script = ExtResource("1_5qchl")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(626, 374)
+position = Vector2(657, 369)
 scale = Vector2(0.61629, 0.540156)
 texture = ExtResource("2_qjpmw")
 
@@ -33,10 +33,10 @@ offset_bottom = 391.0
 text = "Bedroom"
 
 [node name="Summon_Customer" type="TextureButton" parent="."]
-offset_left = 864.0
-offset_top = 227.0
-offset_right = 1034.0
-offset_bottom = 340.0
+offset_left = 859.0
+offset_top = 224.0
+offset_right = 1029.0
+offset_bottom = 337.0
 texture_normal = ExtResource("3_x2aqh")
 ignore_texture_size = true
 stretch_mode = 0

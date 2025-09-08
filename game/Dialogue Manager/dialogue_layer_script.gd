@@ -6,6 +6,7 @@ var scene_text = {}
 var selected_text = []
 var is_dialogue_active = false
 var area_active = false
+var portrait_tween: Tween = null
 
 @onready var background: TextureRect = $Dialogue_Container/Background
 @onready var text: RichTextLabel = $Dialogue_Container/Text
@@ -47,32 +48,24 @@ func show_scene_text():
 	
 	var entry = selected_text.pop_front()
 	
-	# Handle plain string format
-	if typeof(entry) == TYPE_STRING:
-		text.text = entry
-		portrait.visible = false
-		return
-	
 	# Handle dictionary format
 	if typeof(entry) == TYPE_DICTIONARY:
 		text.text = entry.get("Line", "")
 	
 	#------------Character Portraits-----------------------
 	if entry.has("Person"):
-		print("Has Entry")
 		match entry["Person"]:
 			"1":
 				portrait.texture = load("res://placeholder_textures/icon.svg")
-				portrait.visible = true
-				print(entry["Person"])
 			"2":
 				portrait.texture = load("res://placeholder_textures/bed placeholder.png")
-				portrait.visible = true
 			_:
 				portrait.visible = false
 	else:
 		portrait.visible = false
 		print("No Portrait Found")
+	if portrait.visible == false:
+		fade_in_portrait()
 	#------------Character Portraits-----------------------
 
 func next_line():
@@ -86,7 +79,7 @@ func finish():
 	background.visible = false
 	text.visible = false
 	is_dialogue_active = false
-	portrait.visible = false
+	fade_out_portrait()
 
 func _on_display_dialogue(text_key):
 	if is_dialogue_active:
@@ -95,7 +88,6 @@ func _on_display_dialogue(text_key):
 		background.visible = true
 		text.visible = true
 		is_dialogue_active = true
-		portrait.visible = true
 		#tester - print(scene_text[text_key])
 		selected_text = scene_text[text_key].duplicate()
 		show_scene_text()
@@ -119,6 +111,18 @@ func _on_summon_customer_pressed() -> void:
 			print("No More Dialogue")
 		#tester - print(Global_Values.player_information["dialogue_stage"])
 
+func fade_in_portrait(duration := 1.5):
+	portrait.visible = true
+	portrait.modulate.a = 0.0
+	var tween = create_tween()
+	tween.tween_property(portrait, "modulate:a", 1, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+func fade_out_portrait(duration := 1.5):
+	var tween = create_tween()
+	tween.tween_property(portrait, "modulate:a", 0.0, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.finished.connect(func ():
+		portrait.visible = false
+	)
 
 func _on_background_mouse_entered() -> void:
 	area_active = true
