@@ -21,7 +21,8 @@ var pot_status = {
 var player_information = {
 	"name" : "",
 	"day": 0,
-	"brightness": 1
+	"brightness": 1,
+	"dialogue_stage" : 1
 }
 
 var player_relationship = {

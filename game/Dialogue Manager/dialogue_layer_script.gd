@@ -72,10 +72,15 @@ func _input(event: InputEvent) -> void:
 		next_line()
 
 
-# Click Bell & Customer will come talk, load day for customer visual and line request
+
 func _on_summon_customer_pressed() -> void:
 	if not is_dialogue_active:
-		_on_display_dialogue("intro")
+		var day = str(Global_Values.player_information["day"])
+		var stage = str(Global_Values.player_information["dialogue_stage"])
+		var dialogue_key = day + "." + stage
+		_on_display_dialogue(dialogue_key)
+		Global_Values.player_information["dialogue_stage"] = Global_Values.player_information["dialogue_stage"] + 1
+		print(Global_Values.player_information["dialogue_stage"])
 
 
 func _on_background_mouse_entered() -> void:
