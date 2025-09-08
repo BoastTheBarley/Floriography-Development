@@ -22,7 +22,7 @@ var player_information = {
 	"name" : "",
 	"day": 0,
 	"brightness": 1,
-	"dialogue_stage" : 1
+	"dialogue_stage" : 0
 }
 
 var player_relationship = {

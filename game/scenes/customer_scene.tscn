@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2b5hx8ljyqlh" path="res://game/scenes/scenes_script/customer_scene.gd" id="1_5qchl"]
 [ext_resource type="Texture2D" uid="uid://cnij2ml1wlaru" path="res://placeholder_textures/Wallpaper 3.png" id="2_qjpmw"]
-[ext_resource type="Texture2D" uid="uid://fmj62wwgm0gf" path="res://placeholder_textures/icon.svg" id="3_wj35t"]
+[ext_resource type="Texture2D" uid="uid://2j85x2kx242x" path="res://placeholder_textures/bell placeholder.png" id="3_x2aqh"]
 [ext_resource type="PackedScene" uid="uid://dl7ehoc4ael4s" path="res://game/Dialogue Manager/dialogue_layer.tscn" id="4_x2aqh"]
 [ext_resource type="Texture2D" uid="uid://16opwmofogah" path="res://placeholder_textures/flower_shop_start.png" id="5_x2aqh"]
 
@@ -31,12 +31,14 @@ offset_right = 1233.0
 offset_bottom = 391.0
 text = "Bedroom"
 
-[node name="Summon_Customer" type="Button" parent="."]
-offset_left = 945.0
-offset_top = 204.0
-offset_right = 1081.0
+[node name="Summon_Customer" type="TextureButton" parent="."]
+offset_left = 864.0
+offset_top = 227.0
+offset_right = 1034.0
 offset_bottom = 340.0
-icon = ExtResource("3_wj35t")
+texture_normal = ExtResource("3_x2aqh")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Dialogue_Customer" parent="." instance=ExtResource("4_x2aqh")]
 

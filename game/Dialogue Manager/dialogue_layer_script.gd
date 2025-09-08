@@ -78,8 +78,11 @@ func _on_summon_customer_pressed() -> void:
 		var day = str(Global_Values.player_information["day"])
 		var stage = str(Global_Values.player_information["dialogue_stage"])
 		var dialogue_key = day + "." + stage
-		_on_display_dialogue(dialogue_key)
-		Global_Values.player_information["dialogue_stage"] = Global_Values.player_information["dialogue_stage"] + 1
+		if dialogue_key in scene_text:
+			_on_display_dialogue(dialogue_key)
+			Global_Values.player_information["dialogue_stage"] = Global_Values.player_information["dialogue_stage"] + 1
+		else:
+			print("No More Dialogue")
 		#tester - print(Global_Values.player_information["dialogue_stage"])
 
 
