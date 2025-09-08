@@ -80,7 +80,7 @@ func _on_summon_customer_pressed() -> void:
 		var dialogue_key = day + "." + stage
 		_on_display_dialogue(dialogue_key)
 		Global_Values.player_information["dialogue_stage"] = Global_Values.player_information["dialogue_stage"] + 1
-		print(Global_Values.player_information["dialogue_stage"])
+		#tester - print(Global_Values.player_information["dialogue_stage"])
 
 
 func _on_background_mouse_entered() -> void:
