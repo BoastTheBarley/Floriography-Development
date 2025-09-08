@@ -9,13 +9,15 @@ var area_active = false
 
 @onready var background: TextureRect = $Dialogue_Container/Background
 @onready var text: RichTextLabel = $Dialogue_Container/Text
+@onready var portrait: TextureRect = $Portrait
 
 func _ready():
 	set_process_input(true)
 	background.visible = false
 	text.visible = false
+	portrait.visible = false
 	scene_text = load_scene_text()
-	print(scene_text)
+	#tester - print(scene_text)
 
 
 func load_scene_text():
@@ -28,7 +30,7 @@ func load_scene_text():
 		if error == OK:
 			var text_data = json.data  # Get the parsed data
 			if typeof(text_data) == TYPE_DICTIONARY:  # Check if it’s a dictionary (JSON object)
-				print(text_data)  # Prints the dictionary
+				#tester - print(text_data)  # Prints the dictionary
 				return text_data
 			else:
 				print("Unexpected data, expected a dictionary.")
@@ -39,8 +41,39 @@ func load_scene_text():
 		return {}
 
 func show_scene_text():
-	text.text = selected_text.pop_front()
-	print(selected_text)
+	if selected_text.is_empty():
+		finish()
+		return
+	
+	var entry = selected_text.pop_front()
+	
+	# Handle plain string format
+	if typeof(entry) == TYPE_STRING:
+		text.text = entry
+		portrait.visible = false
+		return
+	
+	# Handle dictionary format
+	if typeof(entry) == TYPE_DICTIONARY:
+		text.text = entry.get("Line", "")
+	
+	#------------Character Portraits-----------------------
+	if entry.has("Person"):
+		print("Has Entry")
+		match entry["Person"]:
+			"1":
+				portrait.texture = load("res://placeholder_textures/icon.svg")
+				portrait.visible = true
+				print(entry["Person"])
+			"2":
+				portrait.texture = load("res://placeholder_textures/bed placeholder.png")
+				portrait.visible = true
+			_:
+				portrait.visible = false
+	else:
+		portrait.visible = false
+		print("No Portrait Found")
+	#------------Character Portraits-----------------------
 
 func next_line():
 	if not selected_text.is_empty():
@@ -53,6 +86,7 @@ func finish():
 	background.visible = false
 	text.visible = false
 	is_dialogue_active = false
+	portrait.visible = false
 
 func _on_display_dialogue(text_key):
 	if is_dialogue_active:
@@ -61,21 +95,29 @@ func _on_display_dialogue(text_key):
 		background.visible = true
 		text.visible = true
 		is_dialogue_active = true
-		print(scene_text[text_key])
+		portrait.visible = true
+		#tester - print(scene_text[text_key])
 		selected_text = scene_text[text_key].duplicate()
 		show_scene_text()
 
 # When Player Has Mouse In Dialogue Box They Can Click To Next Line, Dialogue Continues When In Area And Clicked
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and is_dialogue_active:
-		print("event detected")
+		#tester - print("event detected")
 		next_line()
-
 
 
 func _on_summon_customer_pressed() -> void:
 	if not is_dialogue_active:
-		_on_display_dialogue("intro")
+		var day = str(Global_Values.player_information["day"])
+		var stage = str(Global_Values.player_information["dialogue_stage"])
+		var dialogue_key = day + "." + stage
+		if dialogue_key in scene_text:
+			_on_display_dialogue(dialogue_key)
+			Global_Values.player_information["dialogue_stage"] = Global_Values.player_information["dialogue_stage"] + 1
+		else:
+			print("No More Dialogue")
+		#tester - print(Global_Values.player_information["dialogue_stage"])
 
 
 func _on_background_mouse_entered() -> void:

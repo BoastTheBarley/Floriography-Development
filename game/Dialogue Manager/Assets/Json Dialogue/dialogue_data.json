@@ -1,9 +1,9 @@
 {
-  "intro": [
-	"Hello there!",
-	"Welcome to the game."
+  "0.0": [
+	{"Person" : "1","Line" : "Hello there!"},
+	{"Person" : "1","Line" : "Welcome to the game."}
   ],
-  "another_dialogue": [
-	"This is another dialogue."
+  "0.1": [
+	{"Person" : "2","Line" : "This is another dialogue."}
   ]
 }

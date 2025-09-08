@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cv3evxq8c80"]
+[gd_scene load_steps=8 format=3 uid="uid://cv3evxq8c80"]
 
 [ext_resource type="Script" uid="uid://b2b5hx8ljyqlh" path="res://game/scenes/scenes_script/customer_scene.gd" id="1_5qchl"]
 [ext_resource type="Texture2D" uid="uid://cnij2ml1wlaru" path="res://placeholder_textures/Wallpaper 3.png" id="2_qjpmw"]
 [ext_resource type="Texture2D" uid="uid://fmj62wwgm0gf" path="res://placeholder_textures/icon.svg" id="3_wj35t"]
+[ext_resource type="Texture2D" uid="uid://2j85x2kx242x" path="res://placeholder_textures/bell placeholder.png" id="3_x2aqh"]
 [ext_resource type="PackedScene" uid="uid://dl7ehoc4ael4s" path="res://game/Dialogue Manager/dialogue_layer.tscn" id="4_x2aqh"]
 [ext_resource type="Texture2D" uid="uid://16opwmofogah" path="res://placeholder_textures/flower_shop_start.png" id="5_x2aqh"]
 
@@ -13,7 +14,7 @@ position = Vector2(-16, -1)
 script = ExtResource("1_5qchl")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(655, 361)
+position = Vector2(626, 374)
 scale = Vector2(0.61629, 0.540156)
 texture = ExtResource("2_qjpmw")
 
@@ -31,12 +32,14 @@ offset_right = 1233.0
 offset_bottom = 391.0
 text = "Bedroom"
 
-[node name="Summon_Customer" type="Button" parent="."]
-offset_left = 945.0
-offset_top = 204.0
-offset_right = 1081.0
+[node name="Summon_Customer" type="TextureButton" parent="."]
+offset_left = 864.0
+offset_top = 227.0
+offset_right = 1034.0
 offset_bottom = 340.0
-icon = ExtResource("3_wj35t")
+texture_normal = ExtResource("3_x2aqh")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Dialogue_Customer" parent="." instance=ExtResource("4_x2aqh")]
 
@@ -46,8 +49,8 @@ anchor_left = 0.726
 anchor_top = 0.561
 anchor_right = 0.726
 anchor_bottom = 0.561
-offset_left = -165.28
-offset_top = -54.92
+offset_left = -163.28
+offset_top = -78.92
 offset_right = 165.72
 offset_bottom = 55.08
 theme_override_styles/panel = SubResource("StyleBoxEmpty_x2aqh")
@@ -60,6 +63,14 @@ expand_mode = 1
 [node name="Text" type="RichTextLabel" parent="Dialogue_Customer/Dialogue_Container"]
 layout_mode = 2
 text = "Hi"
+
+[node name="Portrait" type="TextureRect" parent="Dialogue_Customer"]
+offset_left = 761.0
+offset_top = 108.0
+offset_right = 1090.0
+offset_bottom = 242.0
+texture = ExtResource("3_wj35t")
+expand_mode = 1
 
 [connection signal="pressed" from="Flower_Shop_Button" to="." method="_on_flower_shop_button_pressed"]
 [connection signal="pressed" from="Bedroom_Button" to="." method="_on_bedroom_button_pressed"]

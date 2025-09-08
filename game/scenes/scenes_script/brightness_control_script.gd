@@ -17,7 +17,7 @@ func _on_brightness_slider_value_changed(current):
 	slider.value = value
 	Global_Values.player_information["brightness"] = value
 	#tester
-	print("Changed Brightness", Global_Values.player_information["brightness"])
+	#print("Changed Brightness; brightness: ", Global_Values.player_information["brightness"])
 	#tester
 
 
