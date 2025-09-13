@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://crcrymlkl62sq"]
 
-[ext_resource type="Script" path="res://game/journal/scripts/journal_system.gd" id="1_dn6qm"]
+[ext_resource type="Script" uid="uid://bexib4cdw8mpg" path="res://game/journal/scripts/journal_system.gd" id="1_dn6qm"]
 [ext_resource type="PackedScene" uid="uid://d3rraxef8tgp6" path="res://game/journal/JournalPage.tscn" id="2_2x2kt"]
-[ext_resource type="Script" path="res://game/journal/scripts/page_flip_handler.gd" id="2_3lpcy"]
-[ext_resource type="Script" path="res://game/journal/scripts/page_tracker.gd" id="2_8um21"]
-[ext_resource type="Script" path="res://game/journal/scripts/journal_view_controller.gd" id="4_6fdku"]
+[ext_resource type="Script" uid="uid://dc1hv6n1u11pr" path="res://game/journal/scripts/page_flip_controller.gd" id="2_3lpcy"]
+[ext_resource type="Script" uid="uid://dms2fhjk3nwux" path="res://game/journal/scripts/page_tracker.gd" id="2_8um21"]
+[ext_resource type="Script" uid="uid://oaffuow7kcyv" path="res://game/journal/scripts/journal_view_controller.gd" id="4_6fdku"]
 
 [node name="Journal" type="Control" node_paths=PackedStringArray("page_tracker", "page_view_controller")]
 layout_mode = 3

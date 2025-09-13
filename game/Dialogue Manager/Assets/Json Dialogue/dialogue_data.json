@@ -1,0 +1,9 @@
+{
+  "0.0": [
+	{"Person" : "1","Line" : "Hello there!"},
+	{"Person" : "1","Line" : "Welcome to the game."}
+  ],
+  "0.1": [
+	{"Person" : "2","Line" : "This is another dialogue."}
+  ]
+}
