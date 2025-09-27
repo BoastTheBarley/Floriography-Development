@@ -1,4 +1,4 @@
-class_name PageFlipper extends Control
+class_name PageFlipHandler extends Control
 ## Handles page flipping speed logic.
 
 ## Signals that page needs to be flipped in [param direction].

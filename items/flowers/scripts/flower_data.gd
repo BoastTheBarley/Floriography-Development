@@ -34,9 +34,9 @@ enum qualities {GOOD, BAD}
 
 
 # -- Data to be used while growing -- 
-## How long it takes to grow the flower.
+## How many days it takes to grow being watered.
 @export var days_to_grow: int
-## How long the flower can go without water.
+## How many days the flower can go without water.
 @export var days_until_dehydration: int
 # Need to add different growth states of flowers and sprites of flower while growing
 # - Need to determine if different flowers have a different number of growth states

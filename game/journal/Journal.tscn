@@ -17,14 +17,14 @@ script = ExtResource("1_dn6qm")
 page_tracker = NodePath("PageTracker")
 page_view_controller = NodePath("JournalViewController")
 
-[node name="PageTracker" type="Control" parent="." node_paths=PackedStringArray("page_flipper")]
+[node name="PageTracker" type="Control" parent="." node_paths=PackedStringArray("page_flip_handler")]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_8um21")
-page_flipper = NodePath("PageFlipController")
+page_flip_handler = NodePath("PageFlipHandler")
 
-[node name="PageFlipController" type="Control" parent="PageTracker"]
+[node name="PageFlipHandler" type="Control" parent="PageTracker"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
